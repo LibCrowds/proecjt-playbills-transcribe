@@ -1,1 +1,1 @@
-# proecjt-playbills-transcribe
+# project-playbills-transcribe
