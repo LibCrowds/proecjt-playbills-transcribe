@@ -1,25 +1,15 @@
 <style>
     #openseadragon {
-        filter: brightness(50%);
         height: 60vh;
         background-color: #000000;
     }
     #answer-column {
         overflow-y: auto;
     }
-    .popover { 
-        max-width:600px !important; 
-    }
-    .overlay,
-    .selection-box {
-        border: 2px solid #FD953A !important;
-    }
-    .overlay {
-        opacity: .75;
+    .highlight {
+        outline: 9999px rgba(0,0,0,.6) solid;
     }
     .hud,
-    .overlay:hover,
-    .overlay:focus,
     .tooltip.tooltip-hud .tooltip-inner {
         background-color: rgba(0, 0, 0, 0.5);
     }
@@ -234,7 +224,7 @@
     function drawOverlay(s) {
         let elem   = document.createElement("div"),
             vpRect = viewer.viewport.imageToViewportRectangle(s);
-        elem.className = 'overlay';
+        elem.className = 'highlight';
         let overlay = {
             element: elem,
             location: new OpenSeadragon.Rect(vpRect.x, vpRect.y, vpRect.width, vpRect.height, vpRect.degrees)
@@ -257,19 +247,6 @@
         }
         $('#answer-form input:first').focus();
     }
-    
-    /**
-     * Convert an overlay back to a selection box on click.
-     */
-    $('#openseadragon').on('click', '.overlay', function() {
-        const id      = $(this).attr('id'),
-              overlay = viewer.getOverlayById(id),
-              bounds  = overlay.getBounds(viewer.viewport);
-        viewer.removeOverlay(id);
-        selector.rect = new OpenSeadragon.SelectionRect(bounds.x, bounds.y, bounds.width, bounds.height, bounds.degrees);
-        selector.draw();
-        selector.enable();
-    });
     
     /**
      * Handle click of an OCR copy button.
@@ -308,11 +285,14 @@
             $('#task-id').html(task.id);
             $('#help').html(task.info.help);
             $('#question').html(task.info.question);
-            ocr.performOcr();
             loadImage(task.info.image_ark);
+            ocr.performOcr();
             generateForm(fields);
             loadUserProgress();
-            drawOverlay(rect);
+            
+            viewer.addHandler('tile-loaded', function() {
+                drawOverlay(rect);
+            });
 
             $('.btn-answer').off('click').on('click', function() {
                 task.answer = {
@@ -321,7 +301,7 @@
                     lark: task.info.ldark,
                     color: task.info.color,
                     aleph_sys_no: task.info.aleph_sys_no,
-                    coordinates: getOverlaysAsImageRectangles(),
+                    coordinates: coords,
                 };
 
                 console.log(JSON.stringify(task.answer, null, 2));
