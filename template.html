@@ -194,29 +194,6 @@
             buildPyramid: false
         });
     }
-    
-    /**
-     * Load the user's rank and score.
-     * Assumes that the current user's name has been added to currentUserName before this template was rendered.
-     */
-    function loadUserProgress() {
-        if (!currentUserName) {
-            return
-        }
-        $.ajax({
-            url: '/leaderboard/',
-            dataType: 'json',
-            contentType: 'application/json',
-            data: '{}'
-        }).done(function(data) {
-            for (let user of data.top_users) {
-                if (user.name == currentUserName) {
-                    $('#rank').append(user.rank);
-                    $('#score').html(user.score);
-                }
-            }
-        });
-    }
 
     /**
      * Draw an overlay from a selection.
@@ -290,7 +267,6 @@
             ocr.reset();
             ocr.performOcr();
             generateForm(fields);
-            loadUserProgress();
             
             viewer.addHandler('tile-loaded', function() {
                 drawOverlay(rect);
