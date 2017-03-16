@@ -111,7 +111,7 @@
         constructor(imageArk, coords, fields) {
             this.fields = fields;
             this.region = `${coords.x},${coords.y},${coords.width},${coords.height}`;
-            this.url    = `http://api.bl.uk/image/iiif/${imageArk}/${this.region}/full/0/bitonal.jpg`;
+            this.url    = `http://api.bl.uk/image/iiif/${imageArk}/${this.region}/full/0/default.jpg`;
         }
     
         reset() {
@@ -229,6 +229,7 @@
             element: elem,
             location: new OpenSeadragon.Rect(vpRect.x, vpRect.y, vpRect.width, vpRect.height, vpRect.degrees)
         }
+        viewer.viewport.fitBounds(overlay.location);
         viewer.addOverlay(overlay);
     }
     
@@ -286,6 +287,7 @@
             $('#help').html(task.info.help);
             $('#question').html(task.info.question);
             loadImage(task.info.image_ark);
+            ocr.reset();
             ocr.performOcr();
             generateForm(fields);
             loadUserProgress();
@@ -293,6 +295,7 @@
             viewer.addHandler('tile-loaded', function() {
                 drawOverlay(rect);
             });
+            
 
             $('.btn-answer').off('click').on('click', function() {
                 task.answer = {
