@@ -11,7 +11,7 @@
 					{
 						"id": "location",
 						"placeholder": "Enter a location",
-						"type": "text",
+						"type": "text"
 					}
 				]
 			},
@@ -23,7 +23,7 @@
 					{
 						"id": "title",
 						"placeholder": "Enter the title",
-						"type": "text",
+						"type": "text"
 					}
 				]
 			},
@@ -35,7 +35,7 @@
 					{
 						"id": "date",
 						"placeholder": "Enter the date",
-						"type": "date",
+						"type": "date"
 					}
 				]
 			}
@@ -53,12 +53,12 @@
 					{
 						"id": "actor",
 						"placeholder": "Enter the actor's name",
-						"type": "text",
+						"type": "text"
 					},
 					{
 						"id": "role",
 						"placeholder": "Enter the actor's role",
-						"type": "text",
+						"type": "text"
 					}
 				]
 			}
