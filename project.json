@@ -2,7 +2,4 @@
     "name": "project-playbills-transcribe",
     "short_name": "project-playbills-transcribe",
     "description": "Transcribe specific categories of data in historic playbills.",
-    "webhook": "https://analyse.libcrowds.com",
-    "category_id": 8,
-    "splash": "https://cdn.rawgit.com/LibCrowds/project-playbills-transcribe/master/assets/splash.jpg"
 }
