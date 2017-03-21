@@ -47,7 +47,7 @@
      * Add the user progress sidebar to the viewer.
      */
     function buildProgressSidebar() {
-        pybossa.userProgress('project-playbills-mark').done(function(data){
+        pybossa.userProgress('project-playbills-transcribe').done(function(data){
            let pct = Math.round((data.done*100)/data.total);
                elem = $(`<div class="progress" style="border: 1px solid #fff; background-color: transparent;">
                              <div class="progress-bar" role="progress-bar" style="width: ${pct.toString()}%; background-color: #fff;"></div>
@@ -101,5 +101,5 @@
           notify('Congratulations! You have contributed to all available tasks!', 'success');
         }
     });
-    pybossa.run('project-playbills-mark');
+    pybossa.run('project-playbills-transcribe');
 </script>
