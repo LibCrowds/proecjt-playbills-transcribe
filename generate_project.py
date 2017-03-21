@@ -87,7 +87,7 @@ def get_json_data(json_data, taskset):
     product = list(itertools.product(tasks, input_data))
     data = [dict(row[0].items() + row[1].items()) for row in product]
     for row in data:
-        row['fields'] = json.dumps(row['fields'])
+        row['inputs'] = json.dumps(row['inputs'])
     headers = set(itertools.chain(*[row.keys() for row in data]))
     return headers, data
 
