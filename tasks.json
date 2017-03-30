@@ -1,64 +1,63 @@
 {
-	"places_titles_dates": {
-		"nameSuffix": "Transcribe Places, Titles and Dates",
-		"description": "Transcribe places, titles and dates in historic playbills",
+	"events": {
+		"nameSuffix": "Transcribe Events",
+		"description": "Transcribe details about the events advertised in historic playbills",
 		"tasks": [
 			{
-				"category": "place",
-				"question": "Transcribe the location of the performance",
-				"guidance": "Transcribe the location of the highlighted performance (e.g. the name of the theatre).",
-				"inputs": [
-					{
-						"id": "location",
-						"placeholder": "Enter a location",
-						"type": "text"
-					}
-				]
-			},
-			{
-				"category": "title",
-				"question": "Transcribe the title",
-				"guidance": "Transcribe the title of the highlighted performance.",
+				"category": "events",
+				"question": "Enter the event's details",
+				"guidance": "Enter the event's title, date and subject",
 				"inputs": [
 					{
 						"id": "title",
 						"placeholder": "Enter the title",
 						"type": "text"
-					}
-				]
-			},
-			{
-				"category": "date",
-				"question": "Enter the date",
-				"guidance": "Enter the date of the highlighted performance (if present).",
-				"inputs": [
+					},
 					{
 						"id": "date",
 						"placeholder": "Enter the date",
 						"type": "date"
+					},
+					{
+						"id": "subject",
+						"placeholder": "Enter the subject",
+						"type": "select"
+						"options": [
+							"Drama",
+							"Comedy",
+							"Farce",
+							"Satire",
+							"Song"
+						]
 					}
 				]
 			}
 		]
 	},
-	"actors": {
-		"nameSuffix": "Transcribe Actors and Roles",
-		"description": "Transcribe actors and roles in historic playbills",
+	"people": {
+		"nameSuffix": "Transcribe People",
+		"description": "Transcribe details about people and their positions in historic playbills",
 		"tasks": [
 			{
-				"category": "actor",
-				"question": "Transcribe the name of the actor",
-				"guidance": "Transcribe the name of the highlighted actor (and role, if present).",
+				"category": "people",
+				"question": "Enter the person's details",
+				"guidance": "Transcribe the person's name and select or transcribe their position",
 				"inputs": [
 					{
-						"id": "actor",
-						"placeholder": "Enter the actor's name",
+						"id": "name",
+						"placeholder": "Enter the person's name",
 						"type": "text"
 					},
 					{
-						"id": "role",
-						"placeholder": "Enter the actor's role",
-						"type": "text"
+						"id": "position",
+						"placeholder": "Enter the actor's position",
+						"type": "select"
+						"options": [
+							"Actor",
+							"Director",
+							"Playwright",
+							"Stage Manager"
+						]
 					}
 				]
 			}
