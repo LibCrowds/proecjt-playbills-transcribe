@@ -17,7 +17,7 @@ To generate a new project using the inputs provided above and push it to the ser
 install and configure [pbs](https://github.com/Scifabric/pbs), then:
 
 ```
-python generate_project.py <task set> --json=<path>
+python generate_project.py <task set> <path to json file>
 cd gen
 pbs create_project
 pbs add_tasks --tasks-file=tasks.csv
