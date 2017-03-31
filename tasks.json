@@ -21,7 +21,7 @@
 					{
 						"id": "subject",
 						"placeholder": "Enter the subject",
-						"type": "select"
+						"type": "select",
 						"options": [
 							"Drama",
 							"Comedy",
@@ -51,13 +51,31 @@
 					{
 						"id": "position",
 						"placeholder": "Enter the actor's position",
-						"type": "select"
+						"type": "select",
 						"options": [
 							"Actor",
 							"Director",
 							"Playwright",
 							"Stage Manager"
 						]
+					}
+				]
+			}
+		]
+	},
+	"dates": {
+		"nameSuffix": "Transcribe Dates",
+		"description": "Transcribe dates in historic playbills",
+		"tasks": [
+			{
+				"category": "date",
+				"question": "Transcibe the highlighted date",
+				"guidance": "Use the format day/month/year",
+				"inputs": [
+					{
+						"id": "date",
+						"placeholder": "Date",
+						"type": "text"
 					}
 				]
 			}
