@@ -14,8 +14,7 @@
     </div>
 </div>
 <script>
-    let lcViewerInterface = new LibCrowdsViewerInterface({ id: 'openseadragon', selectionEnabled: true });
-    lcViewerInterface.selector.enable();
+    let lcViewerInterface = new LibCrowdsViewerInterface({ id: 'openseadragon' });
     $('#openseadragon').prepend($('.navbar'));
     $('.navbar').css('z-index', 'inherit');
     
@@ -23,21 +22,21 @@
      * Add the question and answer sidebar to the viewer.
      */
     function buildTaskSidebar(task) {
-		let elem = $(`<h3 class="lead">${task.info.question}</h3>
-                      <p>${task.info.guidance}</p>
-                      <form id="answer-form">
-                      </form>
-					  <div class="text-center mb-2">
-                          <a href="../tutorial" class="btn btn-outline-info mt-2" role="button">Tutorial</a>
-    			          <button class="btn btn-outline-success btn-answer mt-2" role="button">
-                              <span class="fa fa-floppy-o mr-1"></span>Save
-                          </button>
+		let elem = $(`<div>
+                          <h3 class="lead">${task.info.question}</h3>
+                          <p>${task.info.guidance}</p>
+                          <form id="answer-form">
+                          </form>
+    					  <div class="text-center mb-2">
+        			          <button class="btn btn-outline-success btn-answer mt-2" role="button">
+                                  <span class="fa fa-floppy-o mr-1"></span>Save
+                              </button>
+                          </div>
                       </div>`),
 		    inputs = JSON.parse(task.info.inputs);
 		for (let input of inputs) {
-			console.log(elem);
 			elem.children('#answer-form').append(
-			    `<input id="${input.id}" name="${input.name}" placeholder="${input.placeholder}" type="${input.type}" />`
+			    `<input id="${input.id}" class="form-control" name="${input.name}" placeholder="${input.placeholder}" type="${input.type}" />`
 			);
 		}
         lcViewerInterface.loadSidebar('Task', elem);
@@ -70,6 +69,7 @@
     pybossa.presentTask(function(task, deferred) {
         if (!$.isEmptyObject(task)) {
 			lcViewerInterface.viewer.addHandler('open', function() {
+                lcViewerInterface.viewer.clearOverlays();
 				if(typeof task.info.region !== 'undefined') {
 					lcViewerInterface.highlight(task.info.region);
 				}
