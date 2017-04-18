@@ -6,8 +6,12 @@
     .openseadragon-message {
         color: #FFF;
     }
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.75)
+        z-index: 99
+    }
 </style>
-<div id="project-content" class="bg-faded d-flex flex-column h-100">
+<div id="project-content" class="d-flex flex-column h-100">
     <div class="w-100 h-100">
         <div id="openseadragon">
         </div>
@@ -25,18 +29,19 @@
                           <p>${task.info.guidance}</p>
                           <form id="answer-form">
                           </form>
-    					  <div class="text-center mb-2">
-        			          <button class="btn btn-outline-success btn-answer mt-2" role="button">
-                                  <span class="fa fa-floppy-o mr-1"></span>Save
+    					  <div class="text-center mt-2">
+        			          <button class="btn btn-success btn-block btn-answer mt-2" role="button">
+                                  Done
                               </button>
                           </div>
                       </div>`),
 		    inputs = JSON.parse(task.info.inputs);
 		for (let input of inputs) {
 			elem.children('#answer-form').append(
-			    `<input id="${input.id}" class="form-control" name="${input.name}" placeholder="${input.placeholder}" type="${input.type}" />`
+			    `<input id="${input.id}" class="form-control mb-2" name="${input.name}" placeholder="${input.placeholder}" type="${input.type}" />`
 			);
 		}
+        $('#answer-form input:first').focus();
         lcViewerInterface.loadSidebar('Task', elem);
     }
     
@@ -44,7 +49,7 @@
      * Add the user progress sidebar to the viewer.
      */
     function buildProgressSidebar() {
-        pybossa.userProgress('project-playbills-transcribe').done(function(data){
+        pybossa.userProgress('{{ short_name }}').done(function(data){
            let pct = Math.round((data.done*100)/data.total);
                elem = $(`<div class="progress" style="border: 1px solid #fff; background-color: transparent;">
                              <div class="progress-bar" role="progress-bar" style="width: ${pct.toString()}%; background-color: #fff;"></div>
@@ -99,5 +104,5 @@
           notify('Congratulations! You have contributed to all available tasks!', 'success');
         }
     });
-    pybossa.run('project-playbills-transcribe');
+    pybossa.run('{{ short_name }}');
 </script>

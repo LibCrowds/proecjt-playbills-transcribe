@@ -1,34 +1,27 @@
 {
-	"events": {
-		"nameSuffix": "Transcribe Events",
-		"description": "Transcribe details about the events advertised in historic playbills",
+	"subjects_dates_titles": {
+		"nameSuffix": "Transcribe Subjects, Dates and Titles",
+		"description": "Transcribe details of the events advertised in historic playbills",
 		"tasks": [
 			{
-				"category": "events",
+				"category": "subjects_details_titles",
 				"question": "Enter the event's details",
-				"guidance": "Enter the event's title, date and subject",
+				"guidance": "Enter the event's title, date (in the format day/month/year) and subject (e.g. the genre of a play)",
 				"inputs": [
 					{
 						"id": "title",
-						"placeholder": "Enter the title",
+						"placeholder": "Title",
 						"type": "text"
 					},
 					{
 						"id": "date",
-						"placeholder": "Enter the date",
-						"type": "date"
+						"placeholder": "Date",
+						"type": "text"
 					},
 					{
 						"id": "subject",
-						"placeholder": "Enter the subject",
-						"type": "select",
-						"options": [
-							"Drama",
-							"Comedy",
-							"Farce",
-							"Satire",
-							"Song"
-						]
+						"placeholder": "Subject",
+						"type": "text"
 					}
 				]
 			}
@@ -36,28 +29,22 @@
 	},
 	"people": {
 		"nameSuffix": "Transcribe People",
-		"description": "Transcribe details about people and their positions in historic playbills",
+		"description": "Transcribe details about people and their relationships in historic playbills",
 		"tasks": [
 			{
 				"category": "people",
 				"question": "Enter the person's details",
-				"guidance": "Transcribe the person's name and select or transcribe their position",
+				"guidance": "Transcribe the person's name and relationship (e.g. actor, director, stage manager)",
 				"inputs": [
 					{
 						"id": "name",
-						"placeholder": "Enter the person's name",
+						"placeholder": "Name",
 						"type": "text"
 					},
 					{
 						"id": "position",
-						"placeholder": "Enter the actor's position",
-						"type": "select",
-						"options": [
-							"Actor",
-							"Director",
-							"Playwright",
-							"Stage Manager"
-						]
+						"placeholder": "Relationship",
+						"type": "text"
 					}
 				]
 			}
@@ -75,7 +62,7 @@
 					{
 						"id": "date",
 						"placeholder": "Date",
-						"type": "text"
+						"type": "date"
 					}
 				]
 			}

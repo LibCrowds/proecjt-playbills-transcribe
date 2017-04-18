@@ -1,4 +1,94 @@
-<ol class="lead display-6">
-    <li>Transribe the highlighted data</li>
-    <li>Once you're done, click Save</li>
-</ol>
+<style>
+    #openseadragon {
+        font-size: 0.9rem;
+        height: 100%;
+    }
+    .openseadragon-message {
+        color: #fff;
+    }
+</style>
+<div id="project-content" class="d-flex flex-column h-100">
+    <div class="w-100 h-100">
+        <div id="openseadragon" />
+    </div>
+</div>
+<script>
+    let lcViewerInterface = new LibCrowdsViewerInterface({ id: 'openseadragon', confirmBeforeLeaving: false });
+    
+    /**
+     * Add the question and answer sidebar to the viewer.
+     */
+    function buildTaskSidebar() {
+        let elem = $(`<h3 id="question" class="lead">Transcribe the title</h3>
+                      <p id="guidance">The title is highlighted on the image.</p>
+                      <form id="answer-form">
+                          <input id="title" class="form-control mb-2" name="title" type="title" />
+                      </form>
+                      <div class="text-center mb-2">
+                          <button id="done" class="btn btn-success btn-block btn-answer mt-2" role="button">
+                              Done
+                          </button>
+                      </div>`);
+        lcViewerInterface.loadSidebar('Task', elem);
+    }
+
+    // Show tutorial after image loads
+    lcViewerInterface.viewer.addHandler('open', function() {
+        var intro = introJs(),
+            opts  = {
+                doneLabel: "OK",
+                exitOnOverlayClick: false,
+                steps: [
+                    {
+                        intro: "The purpose of this project is to transcribe previously identified fields in historic playbills."
+                    },
+                    {
+                        element: "#question",
+                        intro: "This is the field that needs to be transcribed.",
+                        position: "left"
+                    },
+                    {
+                        element: "#guidance",
+                        intro: "Any additional guidance is shown here.",
+                        position: "left"
+                    },
+                    {
+                        element: "#title",
+                        intro: "Transcribe or enter the required data.",
+                        position: "left"
+                    },
+                    {
+                        element: "#done",
+                        intro: "Once you have finished, click Done.",
+                        position: "left"
+                    }
+                ]
+            };
+        
+        var elt = $('<div></div>');
+        elt.attr("id", "selection");
+        elt.css({ 
+            'border': '2px solid rgb(65, 144, 194)', 
+            'background-color': 'rgba(65, 144, 194, 0.1)', 
+            'opacity': '.6' 
+        });
+        lcViewerInterface.viewer.addOverlay({
+            element: elt[0],
+            location: new OpenSeadragon.Rect(0.09, 0.63, 0.80, 0.09)
+        });
+        
+        intro.setOptions(opts);
+        intro.start();
+        
+        intro.oncomplete(function() {
+            window.location.pathname = 'project/{{ short_name }}/newtask';
+        });
+        
+        intro.onexit(function() {
+            window.location.pathname = 'project/{{ short_name }}/newtask';
+        });
+    });
+    
+    lcViewerInterface.loadImage('ark:/81055/vdc_100022589157.0x000016');
+    buildTaskSidebar();
+</script>
