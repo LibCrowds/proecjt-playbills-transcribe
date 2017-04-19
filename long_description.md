@@ -1,9 +1,9 @@
-The British Library holds a considerable collection of Playbills dating from the 
-1730s to the 1950s. These are single-sheet items which list entertainments at 
-theatres, fairs, pleasure gardens and other such venues. Small 'handbills' 
+The British Library's collection of Playbills ranges from the  
+1730s to the 1950s. Each a single sheet of paper, they list entertainments at 
+theatres, fairs, pleasure gardens and other venues. Small 'handbills' 
 circulated amongst theatre-goers enjoying the performance and larger 
 'great bills' used for posting on walls and windows are assembled in over 1000 
-bound volumes, comprising an estimated 234,000 playbills. 
+bound volumes with an estimated total of 234,000 playbills. 
 
 Given the ephemeral nature of Playbills (fires always needed lighting!) we are 
 fortunate to have such a large number survive, thanks largely to the zeal of 
@@ -25,17 +25,14 @@ informing and guiding selection of material for closer examination.
 
 Large numbers of Playbills have now been digitised and can be freely viewed on 
 the main catalogue [Explore the British Library](http://explore.bl.uk). 
-But, the detail is buried.
+But - the information about historical people and entertainments is locked on the printed page and can't be searched for. 
 
-Transcribing selected key components from individual playbills can be uploaded 
-to Explore and will help permanently enhance the way they can be found and 
-reviewed. Something that can be fun to read can be captured and recorded for 
-others to discover and interpret.
+You can help. By transcribing selected key components from individual playbills, you can enrich the Library's Explore catalogue. A few moments of your time will help permanently enhance the way they can be found and 
+reviewed. Others will get to share the interesting insight you've gained into past entertainments, and historians and other researchers will be able to discover and interpret the records you've improved.  
 
 Some of these plays may not have been independently recorded in printed form in 
 playbooks; some songs may not have been committed to any printed score so some 
 transcriptions will undoubtedly prove pioneering and help expose hidden details.
 
 This is a work-in-progress, so please have a go and do let us know what you 
-think: is there too much to transcribe, too little? Would a free-text box for 
-additional comments be helpful? 
+think: is there too much to transcribe, too little? Too much, or not enough structure?
